@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  mail:
+    host: localhost
+    port: 1025
+    username: ahmed
+    password: wadi
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book_social_network
+    username: wadidbuser
+    password: wadi1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  security:
+    jwt:
+      secret-key: 535940103260210000000
+      expiration: 8640000 # milliseconds = 100 jours
+
+mailing:
+  frontend:
+    activation-url: http://localhost:4200/activate-account
